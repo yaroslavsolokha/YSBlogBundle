@@ -1,0 +1,33 @@
+{
+  "name" : "ys/blog-bundle",
+  "description" : "A blog bundle",
+  "type" : "symfony-bundle",
+  "authors" : [{
+    "name" : "Yaroslav Solokha",
+    "email" : "yaroslav.solokha@gmail.com"
+  }],
+  "keywords" : [
+    "Blog bundle"
+  ],
+  "license" : [
+    "MIT"
+  ],
+  "require" : {
+    "ys/user-bundle" : "dev-master"
+  },
+  "repositories" : [{
+    "type" : "vcs",
+    "url" : "https://github.com/yaroslavsolokha/YSUserBundle.git"
+  }],
+  "autoload" : {
+    "psr-0" : {
+      "YS\\UserBundle" : ""
+    }
+  },
+  "target-dir" : "YS/UserBundle",
+  "extra" : {
+    "branch-alias" : {
+      "dev-master" : "1.0-dev"
+    }
+  }
+}
