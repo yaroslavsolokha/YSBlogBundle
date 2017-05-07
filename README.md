@@ -32,3 +32,9 @@ $ compser update
 ```
 $ bin/console doctrine:schema:update
 ```
+##### 6. Add import to config.yml
+```
+imports:
+    ...
+    - { resource: "@YSBlogBundle/Resources/config/config.yml" }
+```

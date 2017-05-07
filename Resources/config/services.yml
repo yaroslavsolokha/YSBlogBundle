@@ -1,0 +1,12 @@
+services:
+    admin.category:
+        class: YS\BlogBundle\Admin\CategoryAdmin
+        arguments: [~, YS\BlogBundle\Entity\Category, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Category }
+
+    admin.blog_post:
+        class: YS\BlogBundle\Admin\BlogPostAdmin
+        arguments: [~, YS\BlogBundle\Entity\BlogPost, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Blog post }

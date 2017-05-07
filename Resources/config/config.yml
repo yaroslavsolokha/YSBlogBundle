@@ -1,0 +1,8 @@
+sonata_admin:
+    dashboard:
+        groups:
+            blog:
+                label: Blog
+                items:
+                    - admin.blog_post
+                    - admin.category
