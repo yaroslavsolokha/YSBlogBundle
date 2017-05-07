@@ -20,7 +20,7 @@ Inside - YSUserBundle.
 ```
 $ compser update 
 ```
-##### 3. Setup YSUserBundle - https://github.com/yaroslavsolokha/YSUserBundle.git
+##### 3. Setup YSUserBundle - https://github.com/yaroslavsolokha/YSUserBundle
 ##### 4. Add to AppKernel.php
 ```
  $bundles = [
