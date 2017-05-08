@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 
 
 class BlogPostAdmin extends AbstractAdmin
@@ -28,7 +29,9 @@ class BlogPostAdmin extends AbstractAdmin
       ->tab('Post')
         ->with('Content')
           ->add('title', 'text')
-          ->add('body', 'textarea')
+          ->add('body', CKEditorType::class, array(
+            'config_name' => 'my_config'
+          ))
         ->end()
       ->end()
 

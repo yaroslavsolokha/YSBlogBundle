@@ -1,6 +1,6 @@
 YSBlogBundle
 =======
-Inside - YSUserBundle.
+Inside - YSUserBundle, IvoryCKEditorBundle.
 
 #### Setup
 ##### 1. Add to your composer:
@@ -25,7 +25,8 @@ $ compser update
 ```
  $bundles = [
      ...
-     new YS\BlogBundle\YSBlogBundle()
+     new YS\BlogBundle\YSBlogBundle(),
+     new Ivory\CKEditorBundle\IvoryCKEditorBundle()
  ];
 ```
 ##### 5. Update schema

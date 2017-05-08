@@ -6,3 +6,9 @@ sonata_admin:
                 items:
                     - admin.blog_post
                     - admin.category
+
+ivory_ck_editor:
+    configs:
+        my_config:
+            toolbar: [ ["Source", "-", "Maximize"] ]
+            uiColor: "#000000"

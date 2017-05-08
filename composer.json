@@ -13,7 +13,8 @@
     "MIT"
   ],
   "require" : {
-    "ys/user-bundle" : "dev-master"
+    "ys/user-bundle" : "dev-master",
+    "egeloen/ckeditor-bundle": "^5.0"
   },
   "repositories" : [{
     "type" : "vcs",
