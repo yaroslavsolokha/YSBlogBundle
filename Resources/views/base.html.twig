@@ -1,4 +1,4 @@
 {% extends 'YSUserBundle::base.html.twig' %}
 {% block customMenu %}
-    <li><a href="{{ path('ys_blog_homepage') }}">Blog</a></li>
+    <li class="{{ app.request.attributes.get('_route') == 'ys_blog_homepage' ? 'active' }}"><a href="{{ path('ys_blog_homepage') }}">Blog</a></li>
 {% endblock %}
