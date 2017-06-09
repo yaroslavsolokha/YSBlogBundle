@@ -1,0 +1,3 @@
+ys_blog_homepage:
+    path:     /
+    defaults: { _controller: YSBlogBundle:Default:index }

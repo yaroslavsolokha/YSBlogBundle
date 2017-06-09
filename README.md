@@ -1,5 +1,6 @@
 YSBlogBundle
 =======
+Documentation for internal settings for bundle.
 Inside - YSUserBundle, IvoryCKEditorBundle.
 
 #### Setup
@@ -18,7 +19,10 @@ Inside - YSUserBundle, IvoryCKEditorBundle.
 ```
 ##### 2. Composer update
 ```
-$ compser update 
+$ cd server
+$ docker exec -it php /bin/sh
+$ cc ysblogbundle
+$ composer update 
 ```
 ##### 3. Setup YSUserBundle - https://github.com/yaroslavsolokha/YSUserBundle
 ##### 4. Add to AppKernel.php
