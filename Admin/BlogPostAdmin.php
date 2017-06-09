@@ -49,7 +49,8 @@ class BlogPostAdmin extends AbstractAdmin
     $listMapper
       ->addIdentifier('title')
       ->add('category.name')
-      ->add('draft')
+      ->add('draft', null, array('editable' => true))
+      ->add('enabled', null, array('editable' => true))
     ;
   }
 }

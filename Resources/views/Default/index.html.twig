@@ -2,10 +2,14 @@
 
 {% block body %}
     <div class="main container">
-        <h1>YSBlogBundle</h1>
-        <ul>
+        <ul class="collection">
             {% for blogPost in blogPosts %}
-                <li>{{ blogPost.title }}</li>
+                <li class="collection-item">
+                    <span class="title">{{ blogPost.title }}</span>
+                    {% autoescape %}
+                        {{ blogPost.body|raw }}
+                    {% endautoescape %}
+                </li>
             {% endfor %}
         </ul>
     </div>

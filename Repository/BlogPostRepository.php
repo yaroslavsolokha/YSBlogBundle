@@ -16,7 +16,7 @@ class BlogPostRepository extends EntityRepository
   {
     return $this->getEntityManager()
       ->getRepository('YSBlogBundle:BlogPost')
-      ->findBy(array(), array('title' => 'ASC'))
+      ->findBy(array('draft' => false, 'enabled' => true), array('createdAt' => 'ASC'))
     ;
   }
 }
