@@ -3,5 +3,10 @@
 {% block body %}
     <div class="main container">
         <h1>YSBlogBundle</h1>
+        <ul>
+            {% for blogPost in blogPosts %}
+                <li>{{ blogPost.title }}</li>
+            {% endfor %}
+        </ul>
     </div>
 {% endblock %}
