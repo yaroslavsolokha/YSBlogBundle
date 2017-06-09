@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * BlogPost
  *
  * @ORM\Table(name="blog_post")
+ * @ORM\HasLifecycleCallbacks
  * @ORM\Entity(repositoryClass="YS\BlogBundle\Repository\BlogPostRepository")
  */
 class BlogPost
@@ -45,10 +46,44 @@ class BlogPost
     private $draft = false;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(name="enabled", type="boolean")
+     */
+    private $enabled = true;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="blogPosts")
      */
     private $category;
 
+    /**
+     * @var \DateTime $createdAt
+     *
+     * @ORM\Column(type="datetime")
+     */
+    protected $createdAt;
+
+    /**
+     * @var \DateTime $updatedAt
+     *
+     * @ORM\Column(type="datetime")
+     */
+    protected $updatedAt;
+
+    /**
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps()
+    {
+      $this->updatedAt = new \DateTime();
+
+      if ($this->createdAt == null) {
+        $this->createdAt = new \DateTime();
+      }
+    }
 
     /**
      * Get id
@@ -130,6 +165,30 @@ class BlogPost
     public function getDraft()
     {
         return $this->draft;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     *
+     * @return BlogPost
+     */
+    public function setEnabled($enabled)
+    {
+      $this->enabled = $enabled;
+
+      return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return bool
+     */
+    public function getEnabled()
+    {
+      return $this->enabled;
     }
 
     public function setCategory(Category $category)

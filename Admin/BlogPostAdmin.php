@@ -9,7 +9,6 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 
-
 class BlogPostAdmin extends AbstractAdmin
 {
   protected function configureDatagridFilters(DatagridMapper $datagridMapper)
