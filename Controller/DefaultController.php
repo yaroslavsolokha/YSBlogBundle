@@ -15,4 +15,12 @@ class DefaultController extends Controller
       'blogPosts' => $blogPosts
     ));
   }
+
+  public function showAction(Request $request)
+  {
+    $blogPost = $this->getDoctrine()->getRepository('YSBlogBundle:BlogPost')->find($request->get('id'));
+    return $this->render('YSBlogBundle:Default:show.html.twig', array (
+      'blogPost' => $blogPost
+    ));
+  }
 }

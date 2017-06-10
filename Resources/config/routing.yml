@@ -1,3 +1,7 @@
 ys_blog_homepage:
     path:     /
     defaults: { _controller: YSBlogBundle:Default:index }
+
+ys_blog_show:
+    path:     /{id}
+    defaults: { _controller: YSBlogBundle:Default:show }

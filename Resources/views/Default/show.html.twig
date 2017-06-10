@@ -1,0 +1,15 @@
+{% extends 'YSBlogBundle::base.html.twig' %}
+
+{% block body %}
+    <div class="main container">
+        <div class="card">
+            <div class="card-content">
+                <span class="title">{{ blogPost.title }}</span>
+                {% autoescape %}
+                    {{ blogPost.body|raw }}
+                {% endautoescape %}
+            </div>
+            <div class="card-action"></div>
+        </div>
+    </div>
+{% endblock %}

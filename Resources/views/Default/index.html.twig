@@ -9,6 +9,7 @@
                     {% autoescape %}
                         {{ blogPost.body|raw }}
                     {% endautoescape %}
+                    <a href="{{ path('ys_blog_show', {'id': blogPost.id}) }}">Show</a>
                 </li>
             {% endfor %}
         </ul>
