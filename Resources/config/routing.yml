@@ -1,7 +1,15 @@
-ys_blog_homepage:
+ys_blog_list:
     path:     /
     defaults: { _controller: YSBlogBundle:Default:index }
 
 ys_blog_show:
-    path:     /{id}
+    path:     /show/{id}
     defaults: { _controller: YSBlogBundle:Default:show }
+
+ys_blog_edit:
+    path:     /edit/{id}
+    defaults: { _controller: YSBlogBundle:Default:form }
+
+ys_blog_new:
+    path:     /new
+    defaults: { _controller: YSBlogBundle:Default:form }

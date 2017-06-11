@@ -2,16 +2,17 @@
 
 {% block body %}
     <div class="main container">
+        {{ form_start(form, { 'action': path('ys_blog_new', { 'id': app.request.attributes.get('id') }) }) }}
+
         <div class="card">
             <div class="card-content">
-                <span class="title">{{ blogPost.title }}</span>
-                {% autoescape %}
-                    {{ blogPost.body|raw }}
-                {% endautoescape %}
+                {{ form_widget(form) }}
             </div>
             <div class="card-action">
-                <a class="btn" href="{{ path('ys_blog_list') }}">Back</a>
+                <input type="submit" class="btn" value="Save" />
             </div>
         </div>
+
+        {{ form_end(form) }}
     </div>
 {% endblock %}

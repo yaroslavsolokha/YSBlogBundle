@@ -2,16 +2,30 @@
 
 {% block body %}
     <div class="main container">
-        <ul class="collection">
-            {% for blogPost in blogPosts %}
-                <li class="collection-item">
+        <div class="row">
+            <div class="input-field col l3 m4 s10">
+                <select multiple>
+                    <option value="" disabled selected>Choose category</option>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <a href="{{ path('ys_blog_new') }}" class="right input-field btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        {% for blogPost in blogPosts %}
+            <div class="card">
+                <div class="card-content">
                     <span class="title">{{ blogPost.title }}</span>
                     {% autoescape %}
                         {{ blogPost.body|raw }}
                     {% endautoescape %}
-                    <a href="{{ path('ys_blog_show', {'id': blogPost.id}) }}">Show</a>
-                </li>
-            {% endfor %}
-        </ul>
+                </div>
+                <div class="card-action">
+                    <a class="btn" href="{{ path('ys_blog_show', {'id': blogPost.id}) }}">Show</a>
+                    <a class="btn" href="{{ path('ys_blog_edit', {'id': blogPost.id}) }}">Edit</a>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
