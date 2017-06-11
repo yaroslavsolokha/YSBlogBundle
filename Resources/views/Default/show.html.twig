@@ -4,7 +4,7 @@
     <div class="main container">
         <div class="card">
             <div class="card-content">
-                <span class="title">{{ blogPost.title }}</span>
+                <h5>{{ blogPost.title }}</h5>
                 {% autoescape %}
                     {{ blogPost.body|raw }}
                 {% endautoescape %}

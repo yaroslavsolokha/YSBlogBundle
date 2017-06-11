@@ -31,6 +31,17 @@ class DefaultController extends Controller
     ));
   }
 
+  public function deleteAction(Request $request)
+  {
+    $blogPost = $this->getDoctrine()->getRepository('YSBlogBundle:BlogPost')->find($request->get('id'));
+    if($blogPost){
+      $em = $this->getDoctrine()->getManager();
+      $em->remove($blogPost);
+      $em->flush();
+    }
+    return $this->redirectToRoute('ys_blog_list');
+  }
+
   public function formAction(Request $request)
   {
     if($request->get('id')) {

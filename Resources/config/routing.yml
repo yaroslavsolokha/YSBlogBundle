@@ -13,3 +13,7 @@ ys_blog_edit:
 ys_blog_new:
     path:     /new
     defaults: { _controller: YSBlogBundle:Default:form }
+
+ys_blog_delete:
+    path:     /delete/{id}
+    defaults: { _controller: YSBlogBundle:Default:delete }

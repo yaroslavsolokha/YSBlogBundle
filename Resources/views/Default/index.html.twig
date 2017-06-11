@@ -16,7 +16,7 @@
         {% for blogPost in blogPosts %}
             <div class="card">
                 <div class="card-content">
-                    <span class="title">{{ blogPost.title }}</span>
+                    <h5>{{ blogPost.title }}</h5>
                     {% autoescape %}
                         {{ blogPost.body|raw }}
                     {% endautoescape %}
@@ -24,6 +24,8 @@
                 <div class="card-action">
                     <a class="btn" href="{{ path('ys_blog_show', {'id': blogPost.id}) }}">Show</a>
                     <a class="btn" href="{{ path('ys_blog_edit', {'id': blogPost.id}) }}">Edit</a>
+                    <a class="btn" href="{{ path('ys_blog_delete', {'id': blogPost.id}) }}">Delete</a>
+                    <span class="btn-flat disabled right">Created: {{ blogPost.createdat|date('Y-m-d') }}</span>
                 </div>
             </div>
         {% endfor %}

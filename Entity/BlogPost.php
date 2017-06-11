@@ -191,6 +191,26 @@ class BlogPost
       return $this->enabled;
     }
 
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+      return $this->createdAt;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+      return $this->updatedAt;
+    }
+
     public function setCategory(Category $category)
     {
       $this->category = $category;
