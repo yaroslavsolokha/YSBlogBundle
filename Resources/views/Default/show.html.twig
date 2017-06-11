@@ -10,7 +10,10 @@
                 {% endautoescape %}
             </div>
             <div class="card-action">
-                <a class="btn" href="{{ path('ys_blog_list') }}">Back</a>
+                {% if(userId == blogPost.user.id) %}
+                    <a class="btn" href="{{ path('ys_blog_edit', {'id': blogPost.id}) }}">Edit</a>
+                    <a class="btn" href="{{ path('ys_blog_delete', {'id': blogPost.id}) }}">Delete</a>
+                {% endif %}
             </div>
         </div>
     </div>
