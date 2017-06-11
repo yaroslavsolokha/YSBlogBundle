@@ -5,6 +5,7 @@
 namespace YS\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 
 /**
  * BlogPost
@@ -58,6 +59,12 @@ class BlogPost
     private $category;
 
     /**
+     * @ORM\ManyToOne(targetEntity="YS\UserBundle\Entity\User")
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     */
+    private $user;
+
+    /**
      * @var \DateTime $createdAt
      *
      * @ORM\Column(type="datetime")
@@ -70,6 +77,13 @@ class BlogPost
      * @ORM\Column(type="datetime")
      */
     protected $updatedAt;
+
+    public function __construct(TokenStorage $tokenStorage = null)
+    {
+      if ($this->user == null && $tokenStorage) {
+        $this->user = $tokenStorage->getToken()->getUser();
+      }
+    }
 
     /**
      *
@@ -221,12 +235,36 @@ class BlogPost
       return $this->category;
     }
 
-  /**
-   * @return string
-   */
-  public function __toString()
-  {
-    return (string)$this->getTitle();
-  }
+    /**
+     * Set user
+     *
+     * @param string $user
+     *
+     * @return BlogPost
+     */
+    public function setUser($user)
+    {
+      $this->user = $user;
+
+      return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return string
+     */
+    public function getUser()
+    {
+      return $this->user;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+      return (string)$this->getTitle();
+    }
 }
 

@@ -11,6 +11,12 @@ use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 
 class BlogPostAdmin extends AbstractAdmin
 {
+  public function prePersist($blogPost)
+  {
+    $user = $this->getConfigurationPool()->getContainer()->get('security.token_storage')->getToken()->getUser();
+    $blogPost->setUser($user);
+  }
+
   protected function configureDatagridFilters(DatagridMapper $datagridMapper)
   {
     $datagridMapper

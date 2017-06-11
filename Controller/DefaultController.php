@@ -47,7 +47,7 @@ class DefaultController extends Controller
     if($request->get('id')) {
       $blogPost = $this->getDoctrine()->getRepository('YSBlogBundle:BlogPost')->find($request->get('id'));
     } else {
-      $blogPost = new BlogPost();
+      $blogPost = new BlogPost($this->get('security.token_storage'));
     }
 
     $form = $this->createForm(BlogPostType::class, $blogPost);
@@ -55,6 +55,8 @@ class DefaultController extends Controller
 
     if ($form->isSubmitted() && $form->isValid()) {
       $em = $this->getDoctrine()->getManager();
+      $blogPost = $form->getData();
+      $em->persist($blogPost);
       $em->flush();
       return $this->redirectToRoute('ys_blog_list');
     }

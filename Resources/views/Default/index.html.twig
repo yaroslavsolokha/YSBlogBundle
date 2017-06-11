@@ -26,6 +26,7 @@
                     <a class="btn" href="{{ path('ys_blog_edit', {'id': blogPost.id}) }}">Edit</a>
                     <a class="btn" href="{{ path('ys_blog_delete', {'id': blogPost.id}) }}">Delete</a>
                     <span class="btn-flat disabled right">Created: {{ blogPost.createdat|date('Y-m-d') }}</span>
+                    <span class="btn-flat disabled right">By: {{ blogPost.user }}</span>
                 </div>
             </div>
         {% endfor %}

@@ -43,3 +43,9 @@ imports:
     ...
     - { resource: "@YSBlogBundle/Resources/config/config.yml" }
 ```
+##### 7. Add to security.yml
+``` 
+access_control:
+...
+    - { path: ^/blog/new, role: ROLE_USER }
+```
