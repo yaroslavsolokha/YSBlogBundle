@@ -10,10 +10,13 @@
                 {% endautoescape %}
             </div>
             <div class="card-action">
+                <span class="btn js-back-button-history">Back</span>
                 {% if(userId == blogPost.user.id) %}
                     <a class="btn" href="{{ path('ys_blog_edit', {'id': blogPost.id}) }}">Edit</a>
                     <a class="btn" href="{{ path('ys_blog_delete', {'id': blogPost.id}) }}">Delete</a>
                 {% endif %}
+                <span class="btn disabled">{{ blogPost.createdat|date('Y-m-d') }}</span>
+                <span class="btn disabled">{{ blogPost.user }}</span>
             </div>
         </div>
     </div>

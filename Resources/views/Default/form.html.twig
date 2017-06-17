@@ -8,6 +8,7 @@
                     {{ form_widget(form) }}
                 </div>
                 <div class="card-action">
+                    <span class="btn js-back-button-history">Back</span>
                     <input type="submit" class="btn" value="Save" />
                     {% if(app.request.attributes.get('id')) %}
                         <a class="btn" href="{{ path('ys_blog_delete', {'id': app.request.attributes.get('id')}) }}">Delete</a>
