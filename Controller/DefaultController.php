@@ -15,7 +15,10 @@ class DefaultController extends Controller
 {
   public function indexAction()
   {
-    $userId = $this->get('security.token_storage')->getToken()->getUser()->getId();
+    $userId = null;
+    if($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+      $userId = $this->get('security.token_storage')->getToken()->getUser()->getId();
+    }
     $blogPosts = $this->getDoctrine()->getRepository('YSBlogBundle:BlogPost')->findAllOrderedByTitle();
     $categories = $this->getDoctrine()->getRepository('YSBlogBundle:Category')->findAll();
     return $this->render('YSBlogBundle:Default:index.html.twig', array (
@@ -27,7 +30,10 @@ class DefaultController extends Controller
 
   public function showAction(Request $request)
   {
-    $userId = $this->get('security.token_storage')->getToken()->getUser()->getId();
+    $userId = null;
+    if($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+      $userId = $this->get('security.token_storage')->getToken()->getUser()->getId();
+    }
     $blogPost = $this->getDoctrine()->getRepository('YSBlogBundle:BlogPost')->find($request->get('id'));
     return $this->render('YSBlogBundle:Default:show.html.twig', array (
       'blogPost' => $blogPost,

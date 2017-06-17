@@ -23,17 +23,13 @@
                 </div>
                 <div class="card-action">
                     <div class="row no-margin-bottom">
-                        <div class="col l6 m6 s12">
-                            <a class="btn" href="{{ path('ys_blog_show', {'id': blogPost.id}) }}">Show</a>
-                            {% if(userId == blogPost.user.id) %}
-                                <a class="btn" href="{{ path('ys_blog_edit', {'id': blogPost.id}) }}">Edit</a>
-                                <a class="btn" href="{{ path('ys_blog_delete', {'id': blogPost.id}) }}">Delete</a>
-                            {% endif %}
-                        </div>
-                        <div class="col l6 m6 s12">
-                            <span class="btn disabled">Created at: {{ blogPost.createdat|date('Y-m-d') }}</span>
-                            <span class="btn disabled">Created by: {{ blogPost.user }}</span>
-                        </div>
+                        <a class="btn" href="{{ path('ys_blog_show', {'id': blogPost.id}) }}">Show</a>
+                        {% if(userId == blogPost.user.id) %}
+                            <a class="btn" href="{{ path('ys_blog_edit', {'id': blogPost.id}) }}">Edit</a>
+                            <a class="btn" href="{{ path('ys_blog_delete', {'id': blogPost.id}) }}">Delete</a>
+                        {% endif %}
+                        <span class="btn disabled">{{ blogPost.createdat|date('Y-m-d') }}</span>
+                        <span class="btn disabled">{{ blogPost.user }}</span>
                     </div>
                 </div>
             </div>
