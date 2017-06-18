@@ -3,6 +3,7 @@
 namespace YS\BlogBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use YS\BlogBundle\Entity\BlogPost;
 
 /**
  * BlogPostRepository
@@ -18,5 +19,19 @@ class BlogPostRepository extends EntityRepository
       ->getRepository('YSBlogBundle:BlogPost')
       ->findBy(array('draft' => false, 'enabled' => true), array('createdAt' => 'ASC'))
     ;
+  }
+
+  public function findAllUsernameOrderedByUsername()
+  {
+    return $this->getEntityManager()
+      ->createQueryBuilder()
+      ->select('u.username')
+      ->from('YSBlogBundle:BlogPost', 'b')
+      ->leftJoin('b.user', 'u')
+      ->where('b.draft = FALSE and b.enabled = TRUE')
+      ->orderBy('u.username', 'ASC')
+      ->distinct()
+      ->getQuery()
+      ->getResult();
   }
 }

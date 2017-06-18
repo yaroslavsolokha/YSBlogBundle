@@ -20,10 +20,12 @@ class DefaultController extends Controller
       $userId = $this->get('security.token_storage')->getToken()->getUser()->getId();
     }
     $blogPosts = $this->getDoctrine()->getRepository('YSBlogBundle:BlogPost')->findAllOrderedByTitle();
+    $blogPostsUsers = $this->getDoctrine()->getRepository('YSBlogBundle:BlogPost')->findAllUsernameOrderedByUsername();
     $categories = $this->getDoctrine()->getRepository('YSBlogBundle:Category')->findAll();
     return $this->render('YSBlogBundle:Default:index.html.twig', array (
       'blogPosts' => $blogPosts,
       'categories' => $categories,
+      'blogPostsUsers' => $blogPostsUsers,
       'userId' => $userId
     ));
   }

@@ -11,6 +11,14 @@
                     {% endfor %}
                 </select>
             </div>
+            <div class="input-field col l3 m4 s10">
+                <select multiple>
+                    <option value="" disabled selected>Choose user</option>
+                    {% for blogPostsUser in blogPostsUsers %}
+                        <option value="{{ blogPostsUser.username }}">{{ blogPostsUser.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
             <a href="{{ path('ys_blog_new') }}" class="right input-field btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
         </div>
         {% for blogPost in blogPosts %}
