@@ -7,7 +7,8 @@ namespace YS\BlogBundle\Form;
 use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use YS\BlogBundle\Entity\Category;
+
 
 class BlogPostType extends AbstractType
 {
@@ -15,6 +16,9 @@ class BlogPostType extends AbstractType
   {
     $builder
       ->add('title')
+      ->add('category', 'entity', array(
+        'class'    => Category::class,
+      ))
       ->add('body', CKEditorType::class, array(
         'config_name' => 'my_config'
       ))
