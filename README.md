@@ -9,7 +9,7 @@ Inside - YSUserBundle, IvoryCKEditorBundle.
 "require": {
     ...
     "ys/blog-bundle" : "dev-master"
-    },
+},
 "repositories" : [
 ...
 {
